@@ -40,6 +40,7 @@
             // 
             // txtUsuario
             // 
+            txtUsuario.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsuario.Location = new Point(48, 76);
             txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
@@ -49,6 +50,7 @@
             // 
             // txtSenha
             // 
+            txtSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSenha.Location = new Point(48, 158);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";

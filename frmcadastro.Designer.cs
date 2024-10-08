@@ -46,43 +46,53 @@
             // 
             // txtNome
             // 
+            txtNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNome.Location = new Point(43, 56);
             txtNome.Multiline = true;
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(410, 39);
             txtNome.TabIndex = 0;
+            txtNome.TextChanged += txtNome_TextChanged;
             // 
             // txtUsuario
             // 
+            txtUsuario.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsuario.Location = new Point(43, 127);
             txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(410, 39);
             txtUsuario.TabIndex = 1;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // txtTelefone
             // 
+            txtTelefone.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTelefone.Location = new Point(43, 193);
             txtTelefone.Multiline = true;
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(410, 39);
             txtTelefone.TabIndex = 2;
+            txtTelefone.TextChanged += txtTelefone_TextChanged;
             // 
             // txtSenha
             // 
+            txtSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSenha.Location = new Point(43, 262);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(218, 39);
             txtSenha.TabIndex = 3;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // txtRepitaaSenha
             // 
+            txtRepitaaSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRepitaaSenha.Location = new Point(43, 338);
             txtRepitaaSenha.Multiline = true;
             txtRepitaaSenha.Name = "txtRepitaaSenha";
             txtRepitaaSenha.Size = new Size(218, 39);
             txtRepitaaSenha.TabIndex = 4;
+            txtRepitaaSenha.TextChanged += txtRepitaaSenha_TextChanged;
             // 
             // lblNome
             // 
@@ -142,6 +152,7 @@
             // btnCadastrar
             // 
             btnCadastrar.BackColor = Color.Silver;
+            btnCadastrar.Enabled = false;
             btnCadastrar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCadastrar.ForeColor = Color.White;
             btnCadastrar.Location = new Point(43, 406);
@@ -194,6 +205,7 @@
             Controls.Add(txtNome);
             Name = "frmcadastro";
             Text = "frmcadastro";
+            Load += frmcadastro_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
