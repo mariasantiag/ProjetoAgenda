@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProjetoAgenda.Controller;
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
@@ -64,30 +65,27 @@ namespace ProjetoAgenda
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
+            // Pegando os dados do formulário
+            string nome = txtNome.Text; 
+            string usuario = txtUsuario.Text;
+            string telefone = txtTelefone.Text;
+            string senha = txtSenha.Text;  
 
-            // abrindo conexao
-            conexao.Open();
+            // Instanciando o objeto usando UsuarioController
+            UsuarioController controleUsuario = new UsuarioController();
 
-            // criando o comando SQL para inserir o usuário
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
-            
-            // criando o comando
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            //Inserindo o usuário
+             bool resultado = controleUsuario.AddUsuario(nome, usuario, telefone, senha);
 
-            comando.Parameters.AddWithValue("@nome", txtNome.Text);
-            comando.Parameters.AddWithValue("@usuario", txtUsuario.Text);
-            comando.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-            comando.Parameters.AddWithValue("@senha", txtSenha.Text);
-
-            // executando a instrução SQL no bancoV
-            comando.ExecuteNonQuery();
-
-            // fechando a conexão com o banco
-            conexao.Close();
-
-            MessageBox.Show("Cadastro efetuado com sucesso! \n Você já pode realizar o login");
-            this.Close();
+            if (resultado) 
+            {
+                MessageBox.Show("Cadastro efetuado com sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível cadastrar o usuário.");
+            }
         }
+
     }
 }
