@@ -78,7 +78,7 @@ namespace ProjetoAgenda
             comando.Parameters.AddWithValue("@nome", txtNome.Text);
             comando.Parameters.AddWithValue("@usuario", txtUsuario.Text);
             comando.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-            comando.Parameters.AddWithValue("@nome", txtSenha.Text);
+            comando.Parameters.AddWithValue("@senha", txtSenha.Text);
 
             // executando a instrução SQL no bancoV
             comando.ExecuteNonQuery();
