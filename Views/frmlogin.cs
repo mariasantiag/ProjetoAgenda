@@ -1,3 +1,6 @@
+using ProjetoAgenda.Controller;
+using ProjetoAgenda.Views;
+
 namespace ProjetoAgenda
 {
     public partial class frmLogin : Form
@@ -35,7 +38,16 @@ namespace ProjetoAgenda
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            UsuarioController controleUsuario = new UsuarioController();
 
+            bool resultado = controleUsuario.LogarUsuario(txtUsuario.Text, txtSenha.Text);
+
+            MessageBox.Show(resultado.ToString());
+
+            if (resultado) {
+                frmAgenda formAgenda = new frmAgenda();
+                formAgenda.Show();
+            }
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
