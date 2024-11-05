@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjetoAgenda.Views
 {
-    public partial class frmAgenda : Form
+    public partial class frmPrincipal : Form
     {
-        public frmAgenda()
+        public frmPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

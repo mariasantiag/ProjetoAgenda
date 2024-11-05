@@ -45,8 +45,8 @@ namespace ProjetoAgenda
             MessageBox.Show(resultado.ToString());
 
             if (resultado) {
-                frmAgenda formAgenda = new frmAgenda();
-                formAgenda.Show();
+                frmPrincipal formPrincipal = new frmPrincipal();
+                formPrincipal.Show();
             }
         }
 
