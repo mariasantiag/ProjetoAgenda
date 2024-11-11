@@ -56,7 +56,7 @@ namespace ProjetoAgenda.Controller
                 
         }                                               
 
-        public bool LogarUsuario (string usuario, string senha)
+        public bool LogarUsuario (string nome, string senha)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace ProjetoAgenda.Controller
 
                 // Comando SQL que será executado
                 string sql = @" SELECT* FROM tbUsuarios
-                                 WHERE nome = @usuario
+                                 WHERE nome = @nome
                                  and BINARY senha = @senha;";
 
                 // Abri a conexão com o banco
@@ -76,7 +76,7 @@ namespace ProjetoAgenda.Controller
 
                 // Estou trocando o valor dos @ pelas informações que serão cadastradas
                 // Essas informações vieram dos parametros da função
-                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@senha", senha);
 
                 MySqlDataReader resultado = comando.ExecuteReader();
