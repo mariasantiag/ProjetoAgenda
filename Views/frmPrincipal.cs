@@ -37,5 +37,11 @@ namespace ProjetoAgenda.Views
             frmCategoria Categoria = new frmCategoria();
             Categoria.Show();
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuario Usuario = new frmUsuario();
+            Usuario.Show();
+        }
     }
 }

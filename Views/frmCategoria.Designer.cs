@@ -32,6 +32,7 @@
             btnCadastrar = new Button();
             txtCategoria = new TextBox();
             dgvCategoria = new DataGridView();
+            btnExcluir = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
@@ -42,7 +43,7 @@
             groupBox1.Controls.Add(txtCategoria);
             groupBox1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(24, 12);
+            groupBox1.Location = new Point(29, 39);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(253, 115);
             groupBox1.TabIndex = 0;
@@ -66,7 +67,7 @@
             // txtCategoria
             // 
             txtCategoria.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCategoria.Location = new Point(16, 34);
+            txtCategoria.Location = new Point(16, 36);
             txtCategoria.Name = "txtCategoria";
             txtCategoria.Size = new Size(222, 21);
             txtCategoria.TabIndex = 1;
@@ -75,18 +76,29 @@
             // 
             dgvCategoria.BackgroundColor = Color.SkyBlue;
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(366, 12);
+            dgvCategoria.Location = new Point(366, 25);
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(247, 129);
             dgvCategoria.TabIndex = 1;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(522, 160);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(91, 23);
+            btnExcluir.TabIndex = 2;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(661, 153);
+            ClientSize = new Size(661, 195);
+            Controls.Add(btnExcluir);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
             Name = "frmCategoria";
@@ -104,5 +116,6 @@
         private TextBox txtCategoria;
         private Button btnCadastrar;
         private DataGridView dgvCategoria;
+        private Button btnExcluir;
     }
 }

@@ -18,6 +18,13 @@ namespace ProjetoAgenda.Views
             InitializeComponent();
         }
 
+        private void AtualizarDataGrid()
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabela = controleCategoria.GetCategorias();
+            dgvCategoria.DataSource = tabela;
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -53,10 +60,16 @@ namespace ProjetoAgenda.Views
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            CategoriaController controleCategoria = new CategoriaController();
-            DataTable tabela = controleCategoria.GetCategorias();
+            AtualizarDataGrid();
+        }
 
-            dgvCategoria.DataSource = tabela;
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            CategoriaController categoria = new CategoriaController();
+            bool resultado = categoria.ExcluirCategoria(codigo);
+            AtualizarDataGrid();
+
         }
     }
 }

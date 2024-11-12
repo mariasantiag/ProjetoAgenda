@@ -97,6 +97,43 @@ namespace ProjetoAgenda.Controller
             }
 
         }
+
+        public bool ExcluirCategoria(int cod_categoria)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "DELETE FROM tbCategoria WHERE cod_categoria = @cod_categoria;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@cod_categoria", cod_categoria);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categoria:{erro.Message}");
+                return false;
+            }
+
+        }
+
     }
 }
 
