@@ -53,9 +53,9 @@ namespace ProjetoAgenda.Views
 
             UsuarioController controleusuario = new UsuarioController();
 
-            bool resultado = controleusuario.AlterarSenha(senha, usuario);  
+            bool resultado = controleusuario.AlterarSenha(senha, usuario);
 
-            if (resultado) 
+            if (resultado)
             {
                 MessageBox.Show("Cadastro efetuado com sucesso");
             }
@@ -64,6 +64,11 @@ namespace ProjetoAgenda.Views
             {
                 MessageBox.Show("Não foi possivel cadastrar o usuario");
             }
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

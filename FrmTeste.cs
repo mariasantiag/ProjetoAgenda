@@ -37,5 +37,10 @@ namespace ProjetoAgenda
         {
             MessageBox.Show(UserSession.usuario);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

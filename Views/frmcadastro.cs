@@ -66,18 +66,18 @@ namespace ProjetoAgenda
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // Pegando os dados do formulário
-            string nome = txtNome.Text; 
+            string nome = txtNome.Text;
             string usuario = txtUsuario.Text;
             string telefone = txtTelefone.Text;
-            string senha = txtSenha.Text;  
+            string senha = txtSenha.Text;
 
             // Instanciando o objeto usando UsuarioController
             UsuarioController controleUsuario = new UsuarioController();
 
             //Inserindo o usuário
-             bool resultado = controleUsuario.AddUsuario(nome, usuario, telefone, senha);
+            bool resultado = controleUsuario.AddUsuario(nome, usuario, telefone, senha);
 
-            if (resultado) 
+            if (resultado)
             {
                 MessageBox.Show("Cadastro efetuado com sucesso.");
             }
@@ -87,5 +87,9 @@ namespace ProjetoAgenda
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

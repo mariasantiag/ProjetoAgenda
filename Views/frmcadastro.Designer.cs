@@ -47,50 +47,55 @@
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNome.Location = new Point(43, 56);
+            txtNome.Location = new Point(38, 42);
+            txtNome.Margin = new Padding(3, 2, 3, 2);
             txtNome.Multiline = true;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(410, 39);
+            txtNome.Size = new Size(359, 30);
             txtNome.TabIndex = 0;
             txtNome.TextChanged += txtNome_TextChanged;
             // 
             // txtUsuario
             // 
             txtUsuario.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsuario.Location = new Point(43, 127);
+            txtUsuario.Location = new Point(38, 95);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
             txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(410, 39);
+            txtUsuario.Size = new Size(359, 30);
             txtUsuario.TabIndex = 1;
             txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // txtTelefone
             // 
             txtTelefone.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTelefone.Location = new Point(43, 193);
+            txtTelefone.Location = new Point(38, 145);
+            txtTelefone.Margin = new Padding(3, 2, 3, 2);
             txtTelefone.Multiline = true;
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(410, 39);
+            txtTelefone.Size = new Size(359, 30);
             txtTelefone.TabIndex = 2;
             txtTelefone.TextChanged += txtTelefone_TextChanged;
             // 
             // txtSenha
             // 
             txtSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSenha.Location = new Point(43, 262);
+            txtSenha.Location = new Point(38, 196);
+            txtSenha.Margin = new Padding(3, 2, 3, 2);
             txtSenha.Multiline = true;
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(218, 39);
+            txtSenha.Size = new Size(191, 30);
             txtSenha.TabIndex = 3;
             txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // txtRepitaaSenha
             // 
             txtRepitaaSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRepitaaSenha.Location = new Point(43, 338);
+            txtRepitaaSenha.Location = new Point(38, 254);
+            txtRepitaaSenha.Margin = new Padding(3, 2, 3, 2);
             txtRepitaaSenha.Multiline = true;
             txtRepitaaSenha.Name = "txtRepitaaSenha";
-            txtRepitaaSenha.Size = new Size(218, 39);
+            txtRepitaaSenha.Size = new Size(191, 30);
             txtRepitaaSenha.TabIndex = 4;
             txtRepitaaSenha.TextChanged += txtRepitaaSenha_TextChanged;
             // 
@@ -99,9 +104,9 @@
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNome.ForeColor = Color.White;
-            lblNome.Location = new Point(43, 33);
+            lblNome.Location = new Point(38, 25);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(54, 19);
+            lblNome.Size = new Size(47, 16);
             lblNome.TabIndex = 5;
             lblNome.Text = "Nome";
             // 
@@ -110,9 +115,9 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(43, 105);
+            lblUsuario.Location = new Point(38, 79);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(70, 19);
+            lblUsuario.Size = new Size(61, 16);
             lblUsuario.TabIndex = 6;
             lblUsuario.Text = "Usuário";
             // 
@@ -121,9 +126,9 @@
             lblTelefone.AutoSize = true;
             lblTelefone.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTelefone.ForeColor = Color.White;
-            lblTelefone.Location = new Point(43, 171);
+            lblTelefone.Location = new Point(38, 128);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(74, 19);
+            lblTelefone.Size = new Size(68, 16);
             lblTelefone.TabIndex = 7;
             lblTelefone.Text = "Telefone";
             // 
@@ -132,9 +137,9 @@
             lblSenha.AutoSize = true;
             lblSenha.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSenha.ForeColor = Color.White;
-            lblSenha.Location = new Point(43, 240);
+            lblSenha.Location = new Point(38, 180);
             lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(58, 19);
+            lblSenha.Size = new Size(51, 16);
             lblSenha.TabIndex = 8;
             lblSenha.Text = "Senha";
             // 
@@ -143,9 +148,9 @@
             lblRepitaaSenha.AutoSize = true;
             lblRepitaaSenha.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRepitaaSenha.ForeColor = Color.White;
-            lblRepitaaSenha.Location = new Point(43, 316);
+            lblRepitaaSenha.Location = new Point(38, 237);
             lblRepitaaSenha.Name = "lblRepitaaSenha";
-            lblRepitaaSenha.Size = new Size(125, 19);
+            lblRepitaaSenha.Size = new Size(111, 16);
             lblRepitaaSenha.TabIndex = 9;
             lblRepitaaSenha.Text = "Repita a senha";
             // 
@@ -155,9 +160,10 @@
             btnCadastrar.Enabled = false;
             btnCadastrar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCadastrar.ForeColor = Color.White;
-            btnCadastrar.Location = new Point(43, 406);
+            btnCadastrar.Location = new Point(38, 304);
+            btnCadastrar.Margin = new Padding(3, 2, 3, 2);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(141, 52);
+            btnCadastrar.Size = new Size(123, 39);
             btnCadastrar.TabIndex = 10;
             btnCadastrar.Text = "CADASTRAR";
             btnCadastrar.UseVisualStyleBackColor = false;
@@ -168,29 +174,32 @@
             btnCancelar.BackColor = Color.Silver;
             btnCancelar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(203, 406);
+            btnCancelar.Location = new Point(178, 304);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(141, 52);
+            btnCancelar.Size = new Size(123, 39);
             btnCancelar.TabIndex = 11;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.tartaruga;
-            pictureBox1.Location = new Point(361, 378);
+            pictureBox1.Location = new Point(316, 284);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(143, 113);
+            pictureBox1.Size = new Size(125, 85);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
             // frmcadastro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(503, 487);
+            ClientSize = new Size(440, 365);
             Controls.Add(pictureBox1);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
@@ -204,6 +213,7 @@
             Controls.Add(txtTelefone);
             Controls.Add(txtUsuario);
             Controls.Add(txtNome);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmcadastro";
             Text = "frmcadastro";
             Load += frmcadastro_Load;

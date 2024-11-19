@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,13 +14,14 @@ namespace ProjetoAgenda.Controller
     {
         public bool AddCategoria(string categoria)
         { 
+
             MySqlConnection conexao = null;
             try {
 
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 // Comando SQL que será executado
-                string sql = "INSERT INTO tbCategoria (categoria) VALUES (@categoria)";
+                string sql = "INSERT INTO tbCategoria (categoria, usuario) VALUES (@categoria);";
 
                 // Abri a conexão com o banco
                 conexao.Open();
@@ -30,6 +32,7 @@ namespace ProjetoAgenda.Controller
                 // Estou trocando o valor dos @ pelas informações que serão cadastradas
                 // Essas informações vieram dos parametros da função
                 comando.Parameters.AddWithValue("@categoria", categoria);
+
 
                 // Executando no banco de dados
                 int linhasAfetadas = comando.ExecuteNonQuery();

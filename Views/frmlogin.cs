@@ -1,4 +1,5 @@
 using ProjetoAgenda.Controller;
+using ProjetoAgenda.VariableGlobal;
 using ProjetoAgenda.Views;
 
 namespace ProjetoAgenda
@@ -39,7 +40,9 @@ namespace ProjetoAgenda
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             UsuarioController controleUsuario = new UsuarioController();
-
+            UserSession.usuario = txtUsuario.Text;
+            UserSession.senha = txtSenha.Text;
+                    
             bool resultado = controleUsuario.LogarUsuario(txtUsuario.Text, txtSenha.Text);
 
             MessageBox.Show(resultado.ToString());
