@@ -14,3 +14,19 @@ CREATE TABLE tbCategoria (
     );    
 
 
+DELIMITER $$
+
+CREATE TRIGGER trInsertCategoria
+	BEFORE 
+	INSERT
+	ON tbCategoria
+	FOR EACH ROW
+BEGIN
+	SET NEW.usuario = CURRENT_USER();
+END;
+$$
+DELIMITER ;
+
+CREATE USER 'Usuario1'@'%' IDENTIFIED BY '123';
+select * from mysql.user;
+

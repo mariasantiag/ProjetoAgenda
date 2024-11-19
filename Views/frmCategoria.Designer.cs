@@ -97,7 +97,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(661, 195);
+            ClientSize = new Size(653, 194);
             Controls.Add(btnExcluir);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
