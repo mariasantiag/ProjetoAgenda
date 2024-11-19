@@ -43,5 +43,10 @@ namespace ProjetoAgenda.Views
             frmUsuario Usuario = new frmUsuario();
             Usuario.Show();
         }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

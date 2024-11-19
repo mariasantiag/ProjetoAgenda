@@ -12,3 +12,5 @@ CREATE TABLE tbCategoria (
 	cod_categoria INT auto_increment PRIMARY KEY,
     categoria VARCHAR(20) NOT NULL
     );    
+
+

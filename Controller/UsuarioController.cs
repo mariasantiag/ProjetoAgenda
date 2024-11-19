@@ -2,6 +2,7 @@
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,10 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 // Comando SQL que será executado
-                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
+                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);" +
+                              $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; " +
+                              $"GRANT SELECT, INSERT, UPDATE, DELETE ON dbAgenda.* TO 'Usuario1'@'%';";
+
 
                 // Abri a conexão com o banco
                 conexao.Open();
@@ -50,7 +54,7 @@ namespace ProjetoAgenda.Controller
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro ao efetuar o cadastro: {erro.Message}");
+                MessageBox.Show($"Erro ao efetuar o cadastro: {erro.Message}");
                 return false;
             }
                 
@@ -96,5 +100,111 @@ namespace ProjetoAgenda.Controller
                 return false;
             }
         }
+
+        public bool ExcluirUsuario(string usuario)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "DELETE FROM tbUsuarios WHERE usuario = @usuario;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+                
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categoria: {erro.Message}");
+                return false;
+            }
+        }
+
+        public bool AlterarSenha(string senha, string usuario)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "UPDATE tbUsuarios SET senha = @senha WHERE usuario = @usuario;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@senha", senha);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categoria: {erro.Message}");
+                return false;
+            }
+
+        }
+
+        public DataTable GetUsuario()
+        {
+            MySqlConnection conexao = null;
+
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+                string sql = "select nome AS 'Nome', usuario AS 'Usuario' from tbUsuarios;";
+
+                conexao.Open();
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+
+                DataTable tabela = new DataTable();
+
+                adaptador.Fill(tabela);
+
+                return tabela;
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao recuperar categoria: {erro.Message}"); 
+                return new DataTable();
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
     }
+       
+   
 }
