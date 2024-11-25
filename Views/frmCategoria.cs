@@ -76,5 +76,17 @@ namespace ProjetoAgenda.Views
         {
 
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            CategoriaController controleCategoria = new CategoriaController();
+
+
+            int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[1].Value);
+            bool resultado = controleCategoria.AlterarCategoria(txtCategoria.Text, codigo);
+          
+            AtualizarDataGrid();
+
+        }
     }
 }

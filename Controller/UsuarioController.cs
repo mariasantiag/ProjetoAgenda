@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
                 // Comando SQL que será executado
                 string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);" +
                               $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}'; " +
-                              $"GRANT SELECT, INSERT, UPDATE, DELETE ON dbAgenda.* TO 'Usuario1'@'%';";
+                              $"GRANT SELECT, INSERT, UPDATE, DELETE ON dbAgenda.* TO '{usuario}'@'%';";
 
 
                 // Abri a conexão com o banco

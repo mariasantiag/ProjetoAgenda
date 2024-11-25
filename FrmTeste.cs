@@ -42,5 +42,12 @@ namespace ProjetoAgenda
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CategoriaController categoriaController = new CategoriaController();
+
+            categoriaController.AlterarCategoria("alunos", 2);
+        }
     }
 }

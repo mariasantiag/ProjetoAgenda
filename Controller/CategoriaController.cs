@@ -12,7 +12,7 @@ namespace ProjetoAgenda.Controller
 {
     internal class CategoriaController
     {
-        public bool AddCategoria(string categoria)
+        public bool AddCategoria(string nome_categoria)
         { 
 
             MySqlConnection conexao = null;
@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 // Comando SQL que será executado
-                string sql = "INSERT INTO tbCategoria (categoria, usuario) VALUES (@categoria);";
+                string sql = "INSERT INTO tbCategoria (nome_categoria, usuario) VALUES (@nome_categoria);";
 
                 // Abri a conexão com o banco
                 conexao.Open();
@@ -31,7 +31,7 @@ namespace ProjetoAgenda.Controller
 
                 // Estou trocando o valor dos @ pelas informações que serão cadastradas
                 // Essas informações vieram dos parametros da função
-                comando.Parameters.AddWithValue("@categoria", categoria);
+                comando.Parameters.AddWithValue("@nome_categoria", nome_categoria);
 
 
                 // Executando no banco de dados
@@ -71,7 +71,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao();
 
                 // Select que vai retornar os dados
-                string sql = @"SELECT cod_categoria AS 'Código', categoria AS 'Categoria'
+                string sql = @"SELECT cod_categoria AS 'Código', nome_categoria AS 'Categoria'
                                 FROM tbCategoria;";
 
                 // Abri a conexão
@@ -132,6 +132,45 @@ namespace ProjetoAgenda.Controller
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao recuperar categoria:{erro.Message}");
+                return false;
+            }
+
+        }
+
+        public bool AlterarCategoria(string nome_categoria, int cod_categoria)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = @"UPDATE tbCategoria 
+                               SET nome_categoria = @nome_categoria
+                               WHERE cod_categoria = @cod_categoria;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@nome_categoria", nome_categoria);
+                comando.Parameters.AddWithValue("@cod_categoria", cod_categoria);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao alterar categoria:{erro.Message}");
                 return false;
             }
 
