@@ -50,6 +50,8 @@ namespace ProjetoAgenda.Views
             DataTable tabela = controleCategoria.GetCategorias();
 
             dgvCategoria.DataSource = tabela;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

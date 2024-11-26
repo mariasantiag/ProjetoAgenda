@@ -40,13 +40,15 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnExcluir);
+            groupBox1.Controls.Add(btnAlterar);
             groupBox1.Controls.Add(btnCadastrar);
             groupBox1.Controls.Add(txtCategoria);
             groupBox1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(29, 39);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(253, 115);
+            groupBox1.Size = new Size(253, 184);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira o nome da nova categoria";
@@ -77,7 +79,7 @@
             // 
             dgvCategoria.BackgroundColor = Color.SkyBlue;
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(366, 25);
+            dgvCategoria.Location = new Point(353, 63);
             dgvCategoria.Name = "dgvCategoria";
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(247, 129);
@@ -85,22 +87,26 @@
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(522, 160);
+            btnExcluir.BackColor = Color.Silver;
+            btnExcluir.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExcluir.Location = new Point(16, 141);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(91, 23);
+            btnExcluir.Size = new Size(222, 33);
             btnExcluir.TabIndex = 2;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Text = "EXCLUIR";
+            btnExcluir.UseVisualStyleBackColor = false;
             btnExcluir.Click += btnExcluir_Click;
             // 
             // btnAlterar
             // 
-            btnAlterar.Location = new Point(425, 160);
+            btnAlterar.BackColor = Color.Silver;
+            btnAlterar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAlterar.Location = new Point(16, 102);
             btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(91, 23);
+            btnAlterar.Size = new Size(222, 33);
             btnAlterar.TabIndex = 3;
-            btnAlterar.Text = "Alterar";
-            btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Text = "ALTERAR";
+            btnAlterar.UseVisualStyleBackColor = false;
             btnAlterar.Click += btnAlterar_Click;
             // 
             // frmCategoria
@@ -108,9 +114,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(653, 194);
-            Controls.Add(btnAlterar);
-            Controls.Add(btnExcluir);
+            ClientSize = new Size(653, 232);
             Controls.Add(dgvCategoria);
             Controls.Add(groupBox1);
             Name = "frmCategoria";

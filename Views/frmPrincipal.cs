@@ -38,13 +38,13 @@ namespace ProjetoAgenda.Views
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria Categoria = new frmCategoria();
-            Categoria.Show();
+            Categoria.ShowDialog();
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsuario Usuario = new frmUsuario();
-            Usuario.Show();
+            Usuario.ShowDialog();
         }
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,6 +60,12 @@ namespace ProjetoAgenda.Views
         private void lblBoaVindas_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void contatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmContato contato = new frmContato();
+            contato.ShowDialog();
         }
     }
 }

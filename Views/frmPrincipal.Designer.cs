@@ -37,6 +37,7 @@
             usuarioToolStripMenuItem = new ToolStripMenuItem();
             lblBoasVindas = new Label();
             lblBoaVindas = new Label();
+            contatoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             // editarToolStripMenuItem
             // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, usuarioToolStripMenuItem });
+            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, usuarioToolStripMenuItem, contatoToolStripMenuItem });
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "&Editar";
@@ -74,7 +75,7 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(124, 22);
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
@@ -88,7 +89,7 @@
             // usuarioToolStripMenuItem
             // 
             usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(124, 22);
+            usuarioToolStripMenuItem.Size = new Size(180, 22);
             usuarioToolStripMenuItem.Text = "Usuario";
             usuarioToolStripMenuItem.Click += usuarioToolStripMenuItem_Click;
             // 
@@ -114,6 +115,13 @@
             lblBoaVindas.TabIndex = 2;
             lblBoaVindas.Text = "Bem vindo";
             lblBoaVindas.Click += lblBoaVindas_Click;
+            // 
+            // contatoToolStripMenuItem
+            // 
+            contatoToolStripMenuItem.Name = "contatoToolStripMenuItem";
+            contatoToolStripMenuItem.Size = new Size(180, 22);
+            contatoToolStripMenuItem.Text = "Contato";
+            contatoToolStripMenuItem.Click += contatoToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
@@ -146,5 +154,6 @@
         private ToolStripMenuItem usuarioToolStripMenuItem;
         private Label lblBoasVindas;
         private Label lblBoaVindas;
+        private ToolStripMenuItem contatoToolStripMenuItem;
     }
 }
