@@ -11,6 +11,7 @@ CREATE TABLE tbUsuarios (
 CREATE TABLE tbCategoria (
 	cod_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nome_categoria VARCHAR (20) NOT NULL
+	usuario VARCHAR(8) NOT NULL
     );
 
 DELIMITER $$
@@ -21,7 +22,7 @@ CREATE TRIGGER trInsertCategoria
 	ON tbCategoria
 	FOR EACH ROW
 BEGIN
-	SET NEW.usuario = CURRENT_USER();
+	SET NEW.usuario = USER();
 END;
 $$
 DELIMITER ;
@@ -37,7 +38,7 @@ CREATE TABLE tbLog( idLog INT AUTO_INCREMENT PRIMARY KEY,
                      descricao VARCHAR (70));
  
  DELIMITER $$
- DROP TRIGGER trLogDeleteCategoria;
+
  
 CREATE TRIGGER trLogDeleteCategoria 
 	AFTER

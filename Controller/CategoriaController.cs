@@ -21,7 +21,7 @@ namespace ProjetoAgenda.Controller
                 conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 // Comando SQL que será executado
-                string sql = "INSERT INTO tbCategoria (nome_categoria, usuario) VALUES (@nome_categoria);";
+                string sql = "INSERT INTO tbCategoria (nome_categoria) VALUES (@nome_categoria);";
 
                 // Abri a conexão com o banco
                 conexao.Open();

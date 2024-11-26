@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,7 +61,7 @@ namespace ProjetoAgenda.Controller
                 
         }                                               
 
-        public bool LogarUsuario (string nome, string senha)
+        public bool LogarUsuario (string usuario, string senha)
         {
             try
             {
@@ -68,8 +69,8 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 // Comando SQL que será executado
-                string sql = @" SELECT* FROM tbUsuarios
-                                 WHERE nome = @nome
+                string sql = @" SELECT usuario, senha, nome, telefone FROM tbUsuarios
+                                 WHERE usuario = @usuario
                                  and BINARY senha = @senha;";
 
                 // Abri a conexão com o banco
@@ -80,12 +81,15 @@ namespace ProjetoAgenda.Controller
 
                 // Estou trocando o valor dos @ pelas informações que serão cadastradas
                 // Essas informações vieram dos parametros da função
-                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@senha", senha);
 
                 MySqlDataReader resultado = comando.ExecuteReader();
 
                 if (resultado.Read()) {
+                    UserSession.usuario = resultado.GetString("usuario");
+                    UserSession.nome = resultado.GetString("nome");
+                    UserSession.senha = resultado.GetString("senha");
                     conexao.Close();
                     return true;
                 }
@@ -142,7 +146,10 @@ namespace ProjetoAgenda.Controller
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = "UPDATE tbUsuarios SET senha = @senha WHERE usuario = @usuario;";
+                string sql = "UPDATE tbUsuarios SET senha = @senha WHERE usuario = @usuario;" +
+                              $"ALTER USER '{usuario}'@'%' IDENTIFIED BY '{senha}';" +
+                              $"FLUSH PRIVILEGES;";
+
 
                 conexao.Open();
 
