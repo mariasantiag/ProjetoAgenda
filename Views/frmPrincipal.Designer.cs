@@ -35,6 +35,8 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             usuarioToolStripMenuItem = new ToolStripMenuItem();
+            lblBoasVindas = new Label();
+            lblBoaVindas = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(124, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             cadastrarToolStripMenuItem.Click += cadastrarToolStripMenuItem_Click;
             // 
@@ -86,9 +88,32 @@
             // usuarioToolStripMenuItem
             // 
             usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(180, 22);
+            usuarioToolStripMenuItem.Size = new Size(124, 22);
             usuarioToolStripMenuItem.Text = "Usuario";
             usuarioToolStripMenuItem.Click += usuarioToolStripMenuItem_Click;
+            // 
+            // lblBoasVindas
+            // 
+            lblBoasVindas.AutoSize = true;
+            lblBoasVindas.Location = new Point(-64, -65);
+            lblBoasVindas.Name = "lblBoasVindas";
+            lblBoasVindas.Size = new Size(38, 15);
+            lblBoasVindas.TabIndex = 1;
+            lblBoasVindas.Text = "label1";
+            lblBoasVindas.Click += lblBoasVindas_Click;
+            // 
+            // lblBoaVindas
+            // 
+            lblBoaVindas.AutoSize = true;
+            lblBoaVindas.BackColor = Color.Transparent;
+            lblBoaVindas.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBoaVindas.ForeColor = Color.White;
+            lblBoaVindas.Location = new Point(186, 82);
+            lblBoaVindas.Name = "lblBoaVindas";
+            lblBoaVindas.Size = new Size(91, 19);
+            lblBoaVindas.TabIndex = 2;
+            lblBoaVindas.Text = "Bem vindo";
+            lblBoaVindas.Click += lblBoaVindas_Click;
             // 
             // frmPrincipal
             // 
@@ -96,6 +121,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(596, 147);
+            Controls.Add(lblBoaVindas);
+            Controls.Add(lblBoasVindas);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmPrincipal";
@@ -117,5 +144,7 @@
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem usuarioToolStripMenuItem;
+        private Label lblBoasVindas;
+        private Label lblBoaVindas;
     }
 }

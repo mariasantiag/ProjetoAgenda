@@ -11,7 +11,7 @@ CREATE TABLE tbUsuarios (
 CREATE TABLE tbCategoria (
 	cod_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nome_categoria VARCHAR (20) NOT NULL
-	usuario VARCHAR(8) NOT NULL
+	usuario VARCHAR(20) NOT NULL
     );
 
 DELIMITER $$
