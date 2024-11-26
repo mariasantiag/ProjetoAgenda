@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnExcluir = new Button();
+            btnAlterar = new Button();
             btnCadastrar = new Button();
             txtCategoria = new TextBox();
             dgvCategoria = new DataGridView();
-            btnExcluir = new Button();
-            btnAlterar = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
@@ -53,6 +53,30 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insira o nome da nova categoria";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.BackColor = Color.Silver;
+            btnExcluir.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExcluir.Location = new Point(16, 141);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(222, 33);
+            btnExcluir.TabIndex = 2;
+            btnExcluir.Text = "EXCLUIR";
+            btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // btnAlterar
+            // 
+            btnAlterar.BackColor = Color.Silver;
+            btnAlterar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAlterar.Location = new Point(16, 102);
+            btnAlterar.Name = "btnAlterar";
+            btnAlterar.Size = new Size(222, 33);
+            btnAlterar.TabIndex = 3;
+            btnAlterar.Text = "ALTERAR";
+            btnAlterar.UseVisualStyleBackColor = false;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnCadastrar
             // 
@@ -84,30 +108,7 @@
             dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(247, 129);
             dgvCategoria.TabIndex = 1;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.BackColor = Color.Silver;
-            btnExcluir.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExcluir.Location = new Point(16, 141);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(222, 33);
-            btnExcluir.TabIndex = 2;
-            btnExcluir.Text = "EXCLUIR";
-            btnExcluir.UseVisualStyleBackColor = false;
-            btnExcluir.Click += btnExcluir_Click;
-            // 
-            // btnAlterar
-            // 
-            btnAlterar.BackColor = Color.Silver;
-            btnAlterar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAlterar.Location = new Point(16, 102);
-            btnAlterar.Name = "btnAlterar";
-            btnAlterar.Size = new Size(222, 33);
-            btnAlterar.TabIndex = 3;
-            btnAlterar.Text = "ALTERAR";
-            btnAlterar.UseVisualStyleBackColor = false;
-            btnAlterar.Click += btnAlterar_Click;
+            dgvCategoria.CellContentClick += dgvCategoria_CellContentClick;
             // 
             // frmCategoria
             // 

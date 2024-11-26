@@ -37,7 +37,7 @@ namespace ProjetoAgenda.Views
 
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;
-            string categoria = txtCategoria.Text;
+            string categoria = cbCategoria.Text;
 
 
             ContatoController controleContato = new ContatoController();
@@ -56,14 +56,40 @@ namespace ProjetoAgenda.Views
 
             DataTable tabela = controleContato.GetContato();
 
+
             dgvContato.DataSource = tabela;
 
             AtualizarDataGrid();
         }
 
         private void frmContato_Load(object sender, EventArgs e)
+
+
         {
             AtualizarDataGrid();
+
+            CategoriaController controleCategoria = new CategoriaController();
+            DataTable tabela = controleCategoria.GetCategorias();
+            cbCategoria.DataSource = tabela;
+            cbCategoria.DisplayMember = "categoria";
+
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+
+
+        {
+            string telefone = Convert.ToString(dgvContato.SelectedRows[0].Cells[1].Value);
+            ContatoController contato = new ContatoController();
+            bool resultado = contato.ExcluirContato(telefone);
+            AtualizarDataGrid();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+    
         }
     }
 }

@@ -58,6 +58,90 @@ namespace ProjetoAgenda.Controller
 
         }
 
+        public bool ExcluirContato(string telefone)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = "DELETE FROM tbContatos WHERE telefone = @telefone;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@telefone", telefone);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao deletar contato:{erro.Message}");
+                return false;
+            }
+
+        }
+
+        public bool AlterarContato(string contato, string telefone, string categoria)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql = @"UPDATE tbContatos
+                               SET categoria = @categoria
+                               WHERE telefone = @telefone;" +
+                             @"UPDATE tbContatos
+                               SET contato = @contato
+                               WHERE telefone = @ctelefone;"+
+                             @"UPDATE tbContatos
+                               SET telefone = @telefone
+                               WHERE telefone = @ctelefone;" ;
+
+               
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@contato", contato);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+
+                int LinhasAfetadas = comando.ExecuteNonQuery();
+
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao alterar categoria:{erro.Message}");
+                return false;
+            }
+
+        }
+
+
         public DataTable GetContato()
         {
             MySqlConnection conexao = null;

@@ -46,7 +46,7 @@ namespace ProjetoAgenda.Views
                 MessageBox.Show("Erro ao cadastrar");
             }
 
-           
+
             DataTable tabela = controleCategoria.GetCategorias();
 
             dgvCategoria.DataSource = tabela;
@@ -81,14 +81,19 @@ namespace ProjetoAgenda.Views
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            
+
             int codigo = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
             CategoriaController categoria = new CategoriaController();
 
             string usuarioCategoria = txtCategoria.Text;
             bool resultado = categoria.AlterarCategoria(txtCategoria.Text, codigo);
-          
+
             AtualizarDataGrid();
+
+        }
+
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

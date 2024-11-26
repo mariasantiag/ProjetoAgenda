@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            cbCategoria = new ComboBox();
             lblCategoria = new Label();
             lblTelefone = new Label();
             lblContato = new Label();
             btnAlterar = new Button();
             btnExcluir = new Button();
             btnCadastrar = new Button();
-            txtCategoria = new TextBox();
             txtTelefone = new TextBox();
             txtContato = new TextBox();
             dgvContato = new DataGridView();
@@ -45,13 +45,13 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cbCategoria);
             groupBox1.Controls.Add(lblCategoria);
             groupBox1.Controls.Add(lblTelefone);
             groupBox1.Controls.Add(lblContato);
             groupBox1.Controls.Add(btnAlterar);
             groupBox1.Controls.Add(btnExcluir);
             groupBox1.Controls.Add(btnCadastrar);
-            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(txtTelefone);
             groupBox1.Controls.Add(txtContato);
             groupBox1.Location = new Point(24, 25);
@@ -61,6 +61,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cadastrar Contato";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // cbCategoria
+            // 
+            cbCategoria.FormattingEnabled = true;
+            cbCategoria.Location = new Point(18, 178);
+            cbCategoria.Name = "cbCategoria";
+            cbCategoria.Size = new Size(241, 23);
+            cbCategoria.TabIndex = 2;
             // 
             // lblCategoria
             // 
@@ -100,6 +108,7 @@
             btnAlterar.TabIndex = 5;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = false;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnExcluir
             // 
@@ -112,6 +121,7 @@
             btnExcluir.TabIndex = 4;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnCadastrar
             // 
@@ -125,13 +135,6 @@
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
-            // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(18, 178);
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(241, 23);
-            txtCategoria.TabIndex = 2;
             // 
             // txtTelefone
             // 
@@ -186,5 +189,6 @@
         private Label lblTelefone;
         private Label lblContato;
         private DataGridView dgvContato;
+        private ComboBox cbCategoria;
     }
 }

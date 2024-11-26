@@ -68,11 +68,12 @@ namespace ProjetoAgenda.Controller
             try
             {
                 // Cria conexão, usei a classe ConexaoDB que já havia criado
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario,UserSession.senha);
 
                 // Select que vai retornar os dados
                 string sql = @"SELECT cod_categoria AS 'Código', nome_categoria AS 'Categoria'
-                                FROM tbCategoria;";
+                                FROM tbCategoria
+                                WHERE usuario = User();";
 
                 // Abri a conexão
                 conexao.Open();
@@ -143,7 +144,7 @@ namespace ProjetoAgenda.Controller
             {
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
-                string sql = @"UPDATE tbCategoria 
+                string sql = @"UPDATE tbContato
                                SET nome_categoria = @nome_categoria
                                WHERE cod_categoria = @cod_categoria;";
 

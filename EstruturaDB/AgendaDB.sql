@@ -118,3 +118,29 @@ CREATE TABLE tbContatos (
     telefone VARCHAR(40) PRIMARY KEY,
     categoria VARCHAR(15)
     );
+
+
+DELIMITER $$
+
+ 
+CREATE TRIGGER trLogInserirContato 
+	AFTER
+    INSERT
+    ON tbContatos
+    FOR EACH ROW
+BEGIN 
+	INSERT INTO tbLog
+				(usuario,
+				dataehora,
+				descricao)
+    VALUES
+		  (USER(),
+		   current_date(),
+           CONCAT('O contato ', new.contato, ' foi inserido')
+           );
+END;
+ $$   
+ 
+ 
+DELIMITER ;
+
