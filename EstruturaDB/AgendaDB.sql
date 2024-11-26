@@ -111,3 +111,10 @@ END;
  
  
 DELIMITER ;
+
+
+CREATE TABLE tbContatos (
+	contato VARCHAR(80) NOT NULL,
+    telefone VARCHAR(40) PRIMARY KEY,
+    categoria VARCHAR(15)
+    );
