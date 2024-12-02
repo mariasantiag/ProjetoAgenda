@@ -106,7 +106,7 @@ namespace ProjetoAgenda.Controller
         {
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 string sql = "DELETE FROM tbCategoria WHERE cod_categoria = @cod_categoria;";
 
@@ -142,9 +142,9 @@ namespace ProjetoAgenda.Controller
         {
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
-                string sql = @"UPDATE tbContato
+                string sql = @"UPDATE tbCategoria
                                SET nome_categoria = @nome_categoria
                                WHERE cod_categoria = @cod_categoria;";
 

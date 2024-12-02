@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +18,7 @@ namespace ProjetoAgenda.Controller
             try
             {
                 // Cria a conexão, estou utilizando a classe ConexaoDB que está dentro da pasta DATA
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 // Comando SQL que será executado
                 string sql = "INSERT INTO tbContatos (contato, telefone, categoria) VALUES (@contato, @telefone, @categoria);";
@@ -62,7 +63,7 @@ namespace ProjetoAgenda.Controller
         {
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                MySqlConnection conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 string sql = "DELETE FROM tbContatos WHERE telefone = @telefone;";
 
@@ -101,14 +102,10 @@ namespace ProjetoAgenda.Controller
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
 
                 string sql = @"UPDATE tbContatos
-                               SET categoria = @categoria
-                               WHERE telefone = @telefone;" +
-                             @"UPDATE tbContatos
+                               SET categoria = @categoria,
                                SET contato = @contato
-                               WHERE telefone = @ctelefone;"+
-                             @"UPDATE tbContatos
                                SET telefone = @telefone
-                               WHERE telefone = @ctelefone;" ;
+                               WHERE telefone = @telefone;";
 
                
 
@@ -118,6 +115,7 @@ namespace ProjetoAgenda.Controller
 
                 comando.Parameters.AddWithValue("@contato", contato);
                 comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int LinhasAfetadas = comando.ExecuteNonQuery();
 
@@ -149,7 +147,7 @@ namespace ProjetoAgenda.Controller
             try
             {
                 // Cria conexão, usei a classe ConexaoDB que já havia criado
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
                 // Select que vai retornar os dados
                 string sql = @"SELECT contato AS 'Contato', telefone AS 'Telefone', categoria AS 'Categoria' from tbContatos";

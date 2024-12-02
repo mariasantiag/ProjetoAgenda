@@ -64,6 +64,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(182, 23);
             txtSenha.TabIndex = 2;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // label1
             // 

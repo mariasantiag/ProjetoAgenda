@@ -71,5 +71,10 @@ namespace ProjetoAgenda.Views
         {
 
         }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
