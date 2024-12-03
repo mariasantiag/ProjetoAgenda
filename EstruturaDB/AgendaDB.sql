@@ -179,6 +179,33 @@ END;
 
 
 
+ DELIMITER $$
+
+CREATE TRIGGER trLogAlterarContato
+	AFTER
+    UPDATE
+    ON tbContatos
+    FOR EACH ROW
+BEGIN 
+	INSERT INTO tbLog
+				(usuario,
+				dataehora,
+				descricao)
+    VALUES
+		  (USER(),
+		   current_date(),
+           CONCAT('O contato ', old.contato, ' foi  alterada para ', new.contato, '\n',
+				  'A categoria', old.categoria, 'foi alterada para', new.categoria)
+           
+           );
+END;
+ $$   
+ 
+ 
+DELIMITER ;
+
+
+
  -- ---- TRIGGERS DO USUARIO ---------------------
 
  DELIMITER $$
