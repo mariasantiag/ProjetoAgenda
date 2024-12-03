@@ -88,8 +88,31 @@ namespace ProjetoAgenda.Views
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            int contatoalterar = Convert.ToInt32(dgvContato.SelectedRows[0].Cells[1].Value);
+            ContatoController contato = new ContatoController();
 
-    
+            string contatoUsuario = txtContato.Text;
+            string telefoneUsuario = txtTelefone.Text;
+            string categoriaUsuario = cbCategoria.Text;
+
+            bool resultado = contato.AlterarContato(contatoUsuario, contatoalterar, categoriaUsuario);
+
+            if (resultado)
+            {
+                MessageBox.Show("Contato alterado com sucesso");
+            }
+
+            else
+            {
+                MessageBox.Show("Não foi possivel alterar o contato");
+            }
+
+            AtualizarDataGrid();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,8 +39,12 @@
             txtTelefone = new TextBox();
             txtContato = new TextBox();
             dgvContato = new DataGridView();
+            groupBox2 = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvContato).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -54,6 +58,8 @@
             groupBox1.Controls.Add(btnCadastrar);
             groupBox1.Controls.Add(txtTelefone);
             groupBox1.Controls.Add(txtContato);
+            groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(24, 25);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(276, 340);
@@ -67,33 +73,39 @@
             cbCategoria.FormattingEnabled = true;
             cbCategoria.Location = new Point(18, 178);
             cbCategoria.Name = "cbCategoria";
-            cbCategoria.Size = new Size(241, 23);
+            cbCategoria.Size = new Size(241, 25);
             cbCategoria.TabIndex = 2;
             // 
             // lblCategoria
             // 
             lblCategoria.AutoSize = true;
+            lblCategoria.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCategoria.ForeColor = Color.White;
             lblCategoria.Location = new Point(18, 160);
             lblCategoria.Name = "lblCategoria";
-            lblCategoria.Size = new Size(58, 15);
+            lblCategoria.Size = new Size(69, 16);
             lblCategoria.TabIndex = 8;
             lblCategoria.Text = "Categoria";
             // 
             // lblTelefone
             // 
             lblTelefone.AutoSize = true;
+            lblTelefone.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTelefone.ForeColor = Color.White;
             lblTelefone.Location = new Point(18, 112);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(51, 15);
+            lblTelefone.Size = new Size(62, 16);
             lblTelefone.TabIndex = 7;
             lblTelefone.Text = "Telefone";
             // 
             // lblContato
             // 
             lblContato.AutoSize = true;
+            lblContato.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblContato.ForeColor = Color.White;
             lblContato.Location = new Point(18, 62);
             lblContato.Name = "lblContato";
-            lblContato.Size = new Size(50, 15);
+            lblContato.Size = new Size(56, 16);
             lblContato.TabIndex = 6;
             lblContato.Text = "Contato";
             // 
@@ -140,14 +152,14 @@
             // 
             txtTelefone.Location = new Point(18, 130);
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(241, 23);
+            txtTelefone.Size = new Size(241, 25);
             txtTelefone.TabIndex = 1;
             // 
             // txtContato
             // 
             txtContato.Location = new Point(18, 80);
             txtContato.Name = "txtContato";
-            txtContato.Size = new Size(241, 23);
+            txtContato.Size = new Size(241, 25);
             txtContato.TabIndex = 0;
             // 
             // dgvContato
@@ -156,15 +168,53 @@
             dgvContato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvContato.Location = new Point(324, 43);
             dgvContato.Name = "dgvContato";
+            dgvContato.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvContato.Size = new Size(328, 322);
             dgvContato.TabIndex = 1;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(label1);
+            groupBox2.Font = new Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox2.ForeColor = Color.Red;
+            groupBox2.Location = new Point(24, 383);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(422, 67);
+            groupBox2.TabIndex = 2;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "AVISOS";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 34);
+            label2.Name = "label2";
+            label2.Size = new Size(350, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Para alterar o contato, deixe o campo do telefone em branco";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(244, 15);
+            label1.TabIndex = 3;
+            label1.Text = "O telefone deve conter apenas 8 números";
+            label1.Click += label1_Click;
             // 
             // frmContato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(700, 403);
+            ClientSize = new Size(700, 462);
+            Controls.Add(groupBox2);
             Controls.Add(dgvContato);
             Controls.Add(groupBox1);
             Name = "frmContato";
@@ -173,6 +223,8 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvContato).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -190,5 +242,8 @@
         private Label lblContato;
         private DataGridView dgvContato;
         private ComboBox cbCategoria;
+        private GroupBox groupBox2;
+        private Label label1;
+        private Label label2;
     }
 }

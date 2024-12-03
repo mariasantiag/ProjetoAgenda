@@ -95,7 +95,7 @@ namespace ProjetoAgenda.Controller
 
         }
 
-        public bool AlterarContato(string contato, string telefone, string categoria)
+        public bool AlterarContato(string contato, int telefone, string categoria)
         {
             try
             {
@@ -103,8 +103,7 @@ namespace ProjetoAgenda.Controller
 
                 string sql = @"UPDATE tbContatos
                                SET categoria = @categoria,
-                               SET contato = @contato
-                               SET telefone = @telefone
+                               contato = @contato
                                WHERE telefone = @telefone;";
 
                
